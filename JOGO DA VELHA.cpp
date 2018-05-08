@@ -10,11 +10,15 @@
 #include <string.h>
 #define JOGADOR1 1
 #define JOGADOR2 2
+#define GANHAR 666
+
 char linha_coluna[100][100] = {""};
 int linha1,coluna1;
 int linha2,coluna2;
 int vez = 1;
-int i;
+int i = 0;
+int ganhou = 0;
+
 
 int jogo()
 {
@@ -22,6 +26,52 @@ int jogo()
 	printf("1 %c | %c |%c\n",linha_coluna[1][1],linha_coluna[1][2],linha_coluna[1][3]);
 	printf("2 %c | %c |%c\n",linha_coluna[2][1],linha_coluna[2][2],linha_coluna[2][3]);
 	printf("3 %c | %c |%c\n",linha_coluna[3][1],linha_coluna[3][2],linha_coluna[3][3]);
+	
+	//DIAGONAIS
+	if(linha_coluna[1][1] == linha_coluna[2][2] && linha_coluna[2][2] == linha_coluna[3][3] && linha_coluna[1][1] != NULL)
+	{
+		printf("VOCÊ GANHOU!!!!!!!\n");
+		ganhou = GANHAR;
+	}
+	else if(linha_coluna[1][3] == linha_coluna[2][2] && linha_coluna[2][2] == linha_coluna[3][1] && linha_coluna[1][3] != NULL)
+	{
+		printf("VOCÊ GANHOU!!!!!!!\n");
+		ganhou = GANHAR;
+	}
+	//VERTICAIS
+	else if(linha_coluna[1][1] == linha_coluna[2][1] && linha_coluna[2][1] == linha_coluna[3][1] && linha_coluna[1][1] != NULL)
+	{
+		
+		printf("VOCÊ GANHOU!!!!!!!\n");
+		ganhou = GANHAR;
+	}
+	else if(linha_coluna[1][2] == linha_coluna[2][2] && linha_coluna[2][2] == linha_coluna[3][2] && linha_coluna[1][2] != NULL)
+	{
+		printf("VOCÊ GANHOU!!!!!!!\n");
+		ganhou = GANHAR;		
+	}
+	else if(linha_coluna[1][3] == linha_coluna[2][3] && linha_coluna[2][3] == linha_coluna[3][3] && linha_coluna[1][3] != NULL)
+	{
+		printf("VOCÊ GANHOU!!!!!!!\n");
+		ganhou = GANHAR;		
+	}
+	//HORIZONTAIS
+	else if(linha_coluna[1][1] == linha_coluna[1][2] && linha_coluna[1][2] == linha_coluna[1][3] && linha_coluna[1][1] != NULL)
+	{
+		printf("VOCÊ GANHOU!!!!!!!\n");
+		ganhou = GANHAR;		
+	}
+	else if(linha_coluna[2][1] == linha_coluna[2][2] && linha_coluna[2][2] == linha_coluna[2][3] && linha_coluna[2][1] != NULL)
+	{
+		printf("VOCÊ GANHOU!!!!!!!\n");
+		ganhou = GANHAR;		
+	}
+	else if(linha_coluna[3][1] == linha_coluna[3][2] && linha_coluna[3][2] == linha_coluna[3][3] && linha_coluna[3][1] != NULL)
+	{
+		printf("VOCÊ GANHOU!!!!!!!\n");
+		ganhou = GANHAR;		
+	}
+	
 }
 
 int jogador1()
@@ -96,6 +146,10 @@ int main(){
 		else
 		{
 			jogador2();
+		}
+		if(ganhou)
+		{
+			break;
 		}
 	}
 	system("pause");
