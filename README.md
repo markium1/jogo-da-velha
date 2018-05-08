@@ -1,4 +1,4 @@
 # jogo-da-velha
 O famoso Jogo da velha
- Versão 1.0
- SEM VERIFICAÇÃO DE GANHOU OU EMPATE
+ Versão final
+ Só esqueci de comentar, desculpa. Mas tentem entender
